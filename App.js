@@ -40,7 +40,7 @@ const start = async () => {
     // });
     app.listen(railwayPort, () => {
       console.log(
-        `Server running and listening on http://${railwayHostname}:${railwayPort}`
+        `Server running and listening on https://evangadibackend-oef5.onrender.com/`
       );
     });
   } catch (error) {
