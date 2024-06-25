@@ -18,10 +18,8 @@ app.use(
 );
 app.use(express.json());
 
-const corsOption = {
-  origin: ["http://localhost:2023", "https://www.evangad.com"],
-};
-app.use(cors(corsOption));
+
+app.use(cors());
 
 // User routes middleware
 app.use("/api/users", usersRoutes);
@@ -31,6 +29,9 @@ app.use("/api/questions", auth, questionsRoutes);
 app.use("/api/answers", auth, answersRoutes);
 // Table creation routes middleware
 app.use("/api/tables", tableRoutes);
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+});
 
 const start = async () => {
   try {
