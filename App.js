@@ -29,9 +29,7 @@ app.use("/api/questions", auth, questionsRoutes);
 app.use("/api/answers", auth, answersRoutes);
 // Table creation routes middleware
 app.use("/api/tables", tableRoutes);
-app.get('/', (req, res) => {
-  res.send('Hello World!');
-});
+
 
 const start = async () => {
   try {
