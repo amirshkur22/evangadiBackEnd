@@ -29,7 +29,7 @@ app.use("/answers", auth, answersRoutes);
 // Table creation routes middleware
 app.use("/tables", tableRoutes);
 app.get("/", (req, res) => {
-  res.send("Hello World!");
+  res.send("Welcome Amir!");
 });
 
 const start = async () => {
