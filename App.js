@@ -21,13 +21,13 @@ app.use(express.json());
 app.use(cors());
 
 // User routes middleware
-app.use("/api/users", usersRoutes);
+app.use("/users", usersRoutes);
 // Questions routes middleware
-app.use("/api/questions", auth, questionsRoutes);
+app.use("/questions", auth, questionsRoutes);
 // Answers routes middleware
-app.use("/api/answers", auth, answersRoutes);
+app.use("/answers", auth, answersRoutes);
 // Table creation routes middleware
-app.use("/api/tables", tableRoutes);
+app.use("/tables", tableRoutes);
 app.get("/", (req, res) => {
   res.send("Hello World!");
 });
