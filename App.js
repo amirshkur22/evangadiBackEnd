@@ -9,7 +9,8 @@ import auth from "./middleware/Auth.js";
 
 const app = express();
 const portNo = process.env.VITE_PORT_NO;
-
+const railwayPort = process.env.RAILWAY_DB_PORT;
+const railwayHostname = process.env.RAILWAY_DB_HOST;
 app.use(
   express.urlencoded({
     extended: true,
@@ -27,15 +28,20 @@ app.use("/api/users", usersRoutes);
 // Questions routes middleware
 app.use("/api/questions", auth, questionsRoutes);
 // Answers routes middleware
-app.use("/api/answers",auth, answersRoutes);
+app.use("/api/answers", auth, answersRoutes);
 // Table creation routes middleware
 app.use("/api/tables", tableRoutes);
 
 const start = async () => {
   try {
     await dbCon.execute('select "test"');
-    app.listen(portNo, () => {
-      console.log(`Server running and listening on http://localhost:${portNo}`);
+    // app.listen(portNo, () => {
+    //   // console.log(`Server running and listening on http://localhost:${portNo}`);
+    // });
+    app.listen(railwayPort, () => {
+      console.log(
+        `Server running and listening on http://${railwayHostname}:${railwayPort}`
+      );
     });
   } catch (error) {
     console.log(error.message);
